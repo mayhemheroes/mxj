@@ -1,0 +1,56 @@
+# libFuzzer dictionary for XML input (clbanning/mxj FuzzMapXml target).
+# Structural tokens + common XML shapes to help the fuzzer build well-formed XML
+# that mxj's NewMapXml decoder will accept (and then re-serialise via Map.Xml).
+
+# structural
+"<"
+">"
+"</"
+"/>"
+"="
+"\""
+"'"
+
+# declarations / preamble
+"<?xml version=\"1.0\"?>"
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+"encoding=\"UTF-8\""
+"standalone=\"yes\""
+
+# element shapes
+"<a>"
+"</a>"
+"<root>"
+"</root>"
+"<e/>"
+"<e></e>"
+"<e attr=\"v\">"
+
+# attributes / namespaces
+" attr=\"v\""
+"xmlns="
+"xmlns:ns="
+"ns:tag"
+"xml:lang"
+
+# special sections
+"<![CDATA["
+"]]>"
+"<!--"
+"-->"
+"<!DOCTYPE"
+"<!ENTITY"
+
+# entities
+"&amp;"
+"&lt;"
+"&gt;"
+"&quot;"
+"&apos;"
+"&#x41;"
+"&#65;"
+
+# whitespace
+" "
+"\x09"
+"\x0a"

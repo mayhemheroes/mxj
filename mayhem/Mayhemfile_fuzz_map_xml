@@ -1,0 +1,9 @@
+project: mxj
+target: fuzz_map_xml
+cmds:
+  - cmd: /mayhem/fuzz_map_xml
+    libfuzzer: true
+    dictionary: /mayhem/mayhem/fuzz_map_xml.dict
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_map_xml/testsuite
